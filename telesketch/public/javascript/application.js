@@ -74,7 +74,18 @@ var __slice = Array.prototype.slice;
         format = "jpeg";
       }
       mime = "image/" + format;
-      return window.open(this.el.toDataURL(mime));
+
+      // var form = document.getElementById("tester");
+
+      // form.value = "My default value";
+      var data = this.el.toDataURL(mime)
+      // console.log(data);
+      $.post('/image/store', data, function(response)
+      {
+        console.log(response);
+      })
+      ;
+      // return window.open(this.el.toDataURL(mime));
     };
     Sketch.prototype.set = function(key, value) {
       this[key] = value;

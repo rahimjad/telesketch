@@ -13,7 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20151021234943) do
 
-  create_table "inputs", force: :cascade do |t|
+  create_table "texts", force: :cascade do |t|
+    t.integer  "story_id"
+    t.integer  "user_id"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", force: :cascade do |t|
     t.integer  "story_id"
     t.integer  "user_id"
     t.string   "content"

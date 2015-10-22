@@ -1,3 +1,5 @@
+require 'base64'
+
 helpers do
 
   def current_user 
@@ -44,7 +46,15 @@ post '/stories/new' do
 end
 
 post '/image/store' do
-  binding.pry
-  params[:color_store]
-  erb :index
+  body = request.body.read.to_s
+  b64 = body.split(',')[1]#.gsub('+', ' ')
+  data = Base64.decode64(b64)
+
+  file = File.open('public/uploads/temp.png', 'wb')
+
+  file.write(data)
+  file.close
+
+
+  "ok"
 end

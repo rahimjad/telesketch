@@ -14,7 +14,14 @@ class FirstMigration < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :inputs do |t|
+    create_table :images do |t|
+      t.references :story
+      t.references :user
+      t.string :content
+      t.timestamps
+    end
+
+    create_table :texts do |t|
       t.references :story
       t.references :user
       t.string :content
