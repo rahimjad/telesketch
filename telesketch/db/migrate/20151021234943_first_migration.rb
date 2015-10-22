@@ -11,22 +11,20 @@ class FirstMigration < ActiveRecord::Migration
 
     create_table :stories do |t|
       t.string :category
+      t.boolean :complete, default: false
       t.timestamps
     end
 
-    create_table :images do |t|
+    create_table :inputs do |t|
       t.references :story
       t.references :user
-      t.string :content
+      t.string :type
+      t.string :caption
+      t.string :image_path
       t.timestamps
     end
 
-    create_table :texts do |t|
-      t.references :story
-      t.references :user
-      t.string :content
-      t.timestamps
-    end
+
 
     create_table :ratings do |t|
       t.references :story

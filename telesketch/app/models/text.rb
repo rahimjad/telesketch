@@ -1,5 +1,8 @@
-class Text < ActiveRecord::Base
+class Text < Input
 
-  belongs_to :user
-  belongs_to :story
+#validations for just text
+
+  # validates :caption, presence: true, length { minimum: 3, maximum: 140 }
+
+
 end 

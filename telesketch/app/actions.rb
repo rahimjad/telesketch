@@ -9,6 +9,15 @@ helpers do
  def logged_in?
    !!current_user
  end
+
+ def render_image_play
+   erb :'_image_capture'  
+ end
+
+ def render_text_play
+   erb :'_text_capture' 
+ end
+
 end
 
 get '/' do
@@ -20,18 +29,25 @@ get '/stories' do
  erb :'stories/index'
 end
 
-get '/stories/:id' do
- @story = Story.find(params[:id])
+get '/stories/:id' do |id|
+ @story = Story.find(id)
  erb :'stories/show'
 end
 
-get '/users/:id' do
+get '/users/:id' do |id|
+  @user = User.find(id)
+  erb :'users/show'
 end
 
-get '/stories/:id/play' do
+get '/stories/:id/play' do |id|
+  # redirect '/' if !logged_in?
+  @story = Story.find(id)
+  erb :'stories/play'
 end
 
-post '/stories/:id/play' do
+
+post '/stories/:id/play/' do
+
 end
 
 post '/users/login' do
@@ -46,10 +62,10 @@ post '/image/store' do
   body = request.body.read.to_s
   b64 = body.split(',')[1]#.gsub('+', ' ')
   data = Base64.decode64(b64)
-  # file = File.open('public/uploads/temp.png', 'wb')
+  file = File.open('public/uploads/temp.png', 'wb')
 
-  # file.write(data)
-  # file.close
+  file.write(data)
+  file.close
 
 
   "ok"

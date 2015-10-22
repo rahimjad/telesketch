@@ -1,5 +1,6 @@
-class Image < ActiveRecord::Base
+class Image < Input
 
-  belongs_to :user
-  belongs_to :story
+#validations for just images
+
+  validates :image_path, presence: true
 end 
