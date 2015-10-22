@@ -16,6 +16,8 @@ get '/' do
 end
 
 get '/stories' do
+  @stories = Story.all
+  erb :'stories/index'
 end
 
 get '/stories/:id' do

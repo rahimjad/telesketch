@@ -1,4 +1,4 @@
-class Input < ActiveRecord::Base
+class Text < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :story
