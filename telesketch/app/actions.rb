@@ -16,6 +16,7 @@ get '/' do
 end
 
 get '/stories' do
+
 end
 
 get '/stories/:id' do
@@ -25,6 +26,7 @@ get '/users/:id' do
 end
 
 get '/stories/:id/play' do
+
 end
 
 post '/stories/:id/play' do
@@ -36,4 +38,13 @@ post '/users/login' do
 end
 
 post '/stories/:id/rating' do
+end
+
+post '/stories/new' do 
+end
+
+post '/image/store' do
+  binding.pry
+  params[:color_store]
+  erb :index
 end
