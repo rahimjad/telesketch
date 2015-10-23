@@ -7,8 +7,8 @@ class Story < ActiveRecord::Base
     inputs.order(:created_at)
   end
 
-  def self.oldest_incomplete_story
-    self.limit(1).where(complete: false).order(:created_at)[0]
+  def self.oldest_incomplete_story(id)
+    self.order(:updated_at).limit(1).where('stories.id NOT IN (SELECT stories.id FROM stories JOIN inputs ON stories.id = inputs.story_id WHERE inputs.user_id = ?)', id).where(complete: false)[0]
   end
 
   def complete?

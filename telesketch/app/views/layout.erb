@@ -19,5 +19,7 @@
 </head>
 <body>
   <%= yield %>
+  <p> <%= session[:user_id] %> </p>
+  <p> current_user = <%= current_user.name  %> </p>
 </body>
 </html>

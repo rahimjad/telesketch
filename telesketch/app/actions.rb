@@ -31,8 +31,9 @@ end
 
 get '/stories/join' do 
   # binding.pry
-  id = Story.oldest_incomplete_story.id
-  redirect "/stories/#{id}/play"
+    id = Story.oldest_incomplete_story(current_user.id).id
+    story = Story.find(id)
+    redirect "/stories/#{id}/play"
 end
 
 get '/stories/:id' do |id|
@@ -40,9 +41,7 @@ get '/stories/:id' do |id|
  erb :'stories/show'
 end
 
-get '/users/:user_id' do |id|
-  # binding.pry
-
+get '/users/:user_id' do |id|\
   @user = User.find(id)
   erb :'users/show'
 end
@@ -50,7 +49,7 @@ end
 
 
 get '/stories/:id/play' do |id|
-  # redirect '/' if !logged_in? 
+  redirect '/' if !logged_in? 
   @story = Story.find(id)
   redirect '/' if @story.complete
   # binding.pry
@@ -65,15 +64,14 @@ end
 post '/stories/:id/play' do |id|
   case params[:type]
   when "Text"
-    # binding.pry
-    Text.create(caption: params[:caption], story_id: params[:id])
+    Text.create(caption: params[:caption], story_id: params[:id], user_id: current_user.id)
     redirect "/stories/#{params[:id]}"
   when "Image"
     body = params[:data].to_s
-    b64 = body.split(',')[1]#.gsub('+', ' ')
+    b64 = body.split(',')[1]
     data = Base64.decode64(b64)
-    @image = Image.create(image_path: "default", story_id: params[:id])
-    filepath = "public/uploads/drawings/image_id_#{@image.id}_story_id_#{@image.story_id}.png"
+    @image = Image.create(image_path: "default", story_id: params[:id], user_id: current_user.id)
+    filepath = "public/uploads/drawings/image_id_#{@image.id}_story_id_#{@image.story_id}_user_id_#{current_user.id}.png"
     file = File.open(filepath, 'wb')
     file.write(data)
     file.close
@@ -89,15 +87,3 @@ end
 post '/stories/:id/rating' do
 end
 
-post '/image/store' do
-  body = request.body.read.to_s
-  b64 = body.split(',')[1]#.gsub('+', ' ')
-  data = Base64.decode64(b64)
-  file = File.open('public/uploads/temp.png', 'wb')
-
-  file.write(data)
-  file.close
-
-
-  "ok"
-end
