@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+$('#carousel').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 3
+});
+
 var __slice = Array.prototype.slice;
 (function($) {
   var Sketch;

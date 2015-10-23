@@ -21,7 +21,8 @@ helpers do
 end
 
 get '/' do
- erb :index
+  @stories = Story.all.limit(7);
+  erb :index
 end
 
 get '/stories' do

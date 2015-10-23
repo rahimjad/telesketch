@@ -1,8 +1,19 @@
 <h1>Home Page</h1>
 
 
+<div style="position:relative; width: 1000px; margin: 0 auto;">
+<div id="carousel" class="slider multiple-items">
+<% @stories.each do |story| %>
+	<div>
+		<img src=""/>
+	</div>
+<% end %>
+</div>
+</div>
 
-<put a carousel here>
+
+
+
 
 <ul>
 <li>create game</li>
@@ -18,5 +29,6 @@
 <form method='post' action="/users/logout">
   <button>logout</button>
 </form>
+
 
 
