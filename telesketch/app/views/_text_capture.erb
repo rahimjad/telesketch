@@ -1,8 +1,5 @@
-
-
-
-
-<form>
+<form method="post" action="/stories/<%= params[:id] %>/play">
+  <input type="hidden" name="type" value="Text"/>
   <textarea name="caption" rows="6" columns="12"></textarea>
   <button>Submit Caption</button>
 </form>

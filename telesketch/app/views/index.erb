@@ -6,6 +6,15 @@
 
 <ul>
 <li>create game</li>
-<li>join game</li>
+<form method='get' action='/stories/join'><button><li>join game</li></button></form>
 <li>top games</li>
 </ul>
+
+<form method='post' action="/users/login">
+  <input type="text" name="user_id"/>
+  <button>submit</button>
+</form>
+
+<%= session[:user_id] %>
+
+

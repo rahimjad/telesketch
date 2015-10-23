@@ -80,9 +80,16 @@ var __slice = Array.prototype.slice;
       // form.value = "My default value";
       var data = this.el.toDataURL(mime)
       // console.log(data);
-      $.post('/image/store', data, function(response)
+      var url = window.location.href;
+      console.log(url)
+
+      var id_regex = /stories\/\d+/;
+      var response_url = url.match(id_regex);
+      console.log(response_url);
+      $.post(url, { data: data, type: "Image" }, function(response)
       {
-        console.log(response);
+
+        window.location.pathname = response_url;
       })
       ;
       // return window.open(this.el.toDataURL(mime));

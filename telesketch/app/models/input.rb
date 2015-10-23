@@ -4,5 +4,5 @@ class Input < ActiveRecord::Base
   belongs_to :story
 
   validates :type, presence: true
-
+  validates :user_id, uniqueness: {scope: :story_id}
 end 

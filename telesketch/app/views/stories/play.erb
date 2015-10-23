@@ -1,6 +1,6 @@
  
   <% if @story.content.last.is_a?(Text) %>
     <%= render_image_play %>
-  <% elsif @story.inputs.nil? || @story.content.last.is_a?(Image) %>
+  <% elsif @story.inputs.empty? || @story.content.last.is_a?(Image) %>
     <%= render_text_play %>
   <% end %>
