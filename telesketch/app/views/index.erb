@@ -12,10 +12,11 @@
 
 <form method='post' action="/users/login">
   <input type="text" name="user_id"/>
-  <button>submit</button>
+  <button>login</button>
 </form>
 
-<p> <%= session[:user_id] %> </p>
-<p> current_user = <%= current_user.name  %> </p>
+<form method='post' action="/users/logout">
+  <button>logout</button>
+</form>
 
 

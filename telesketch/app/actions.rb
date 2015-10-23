@@ -31,9 +31,13 @@ end
 
 get '/stories/join' do 
   # binding.pry
+  if logged_in?
     id = Story.oldest_incomplete_story(current_user.id).id
     story = Story.find(id)
     redirect "/stories/#{id}/play"
+  else
+    redirect '/'  
+  end
 end
 
 get '/stories/:id' do |id|
@@ -46,8 +50,6 @@ get '/users/:user_id' do |id|\
   erb :'users/show'
 end
 
-
-
 get '/stories/:id/play' do |id|
   redirect '/' if !logged_in? 
   @story = Story.find(id)
@@ -59,6 +61,11 @@ end
 post '/users/login' do
   session[:user_id] = params[:user_id]
   redirect "/users/#{params[:user_id]}" 
+end
+
+post '/users/logout' do
+  session[:user_id] = nil
+  redirect '/'
 end
 
 post '/stories/:id/play' do |id|
@@ -86,4 +93,5 @@ end
 
 post '/stories/:id/rating' do
 end
+
 
