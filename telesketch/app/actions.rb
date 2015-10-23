@@ -73,7 +73,7 @@ post '/stories/:id/play' do |id|
     b64 = body.split(',')[1]#.gsub('+', ' ')
     data = Base64.decode64(b64)
     @image = Image.create(image_path: "default", story_id: params[:id])
-    filepath = "public/uploads/image_id_#{@image.id}_story_id_#{@image.story_id}.png"
+    filepath = "public/uploads/drawings/image_id_#{@image.id}_story_id_#{@image.story_id}.png"
     file = File.open(filepath, 'wb')
     file.write(data)
     file.close
