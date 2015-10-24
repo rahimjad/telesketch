@@ -1,6 +1,14 @@
 
 <div class='demo' id='colors_demo'>
-
+  <div class="row text-center">
+    <div class="col-sm-6 col-sm-offset-3">
+      <!-- <div class="thumbnail"> -->
+      <% if @story.inputs.exists? && !@story.inputs.last.caption.nil? %>    
+        <h1><%= @story.inputs.limit(1).order(created_at: :desc).where(type: "Text")[0].caption %></h1>
+      <% end %> 
+      <!-- </div> -->
+    </div> 
+  </div>
 <div class="container_canvas">
   <div class="tools">
      <a href="#colors_sketch" id="sketch_download" class="btn btn-primary" data-download="png" style="float: right;">Save</a>
