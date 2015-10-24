@@ -1,4 +1,26 @@
-<p> Welcome <%= @user.name %> </p>
-<form method="get" action="/stories/join">
-  <button>Join Game</button>
-</form>
+
+<div class="row text-center">
+  <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
+    <div class="profile-card">
+      <img src="<%= @user.image %>">
+      <div class="profile-info">
+        <h4 class="subheader" style="color:steelblue;"><%= @user.name %></h4>
+        <% if @user == current_user %>
+          <h5>Welcome <%= @user.name %>, want to play a game?</h5>
+          </br>
+          <form method="get" action="/stories/join">
+              <button class="btn btn-primary">Join Game</button>
+          </form>
+        <% end %> 
+      </div>
+      </br>
+        <p style="text-align:center"><small>Created: <%= @user.created_at %> </small><br>
+         <small>Updated: <%= @user.updated_at %></small></p> 
+    </div>
+  </div>
+</div>
+
+
+<div class="row text-center">
+<h3 style="color: #6f6f6f;">Other games by <%= @user.name %></h3>
+</div>
