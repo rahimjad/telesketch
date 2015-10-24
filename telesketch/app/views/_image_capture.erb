@@ -1,9 +1,12 @@
 
 <div class='demo' id='colors_demo'>
-<div class="tools">
-<a href="#colors_sketch" data-download="png" style="float: right; width: 100px;">Download</a>
+
+<div class="container_canvas">
+  <div class="tools">
+    <a href="#colors_sketch" data-download="png" style="float: right; width: 100px;">Download</a>
+  </div>
+  <canvas id="colors_sketch" width="600" height="500"></canvas>
 </div>
-<canvas id="colors_sketch" width="800" height="300"></canvas>
 <script type="text/javascript">
  $(function() {
    $.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#000', '#fff'], function() {
@@ -16,3 +19,4 @@
  });
 </script>
 </div>
+

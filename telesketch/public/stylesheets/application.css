@@ -1,6 +1,6 @@
 canvas {
-       width: 800px;
-       height: 300px;
+       width: 600px;
+       height: 500px;
        border: 1px solid #ccc;
 }
 
@@ -94,4 +94,16 @@ footer {
     header.carousel .carousel {
         height: 70%;
     }
+}
+
+.container_canvas{
+    margin-right: auto;
+    margin-left: auto;
+    width: 600px;
+    padding-top: 1%;
+}
+    
+#caption_image_render{
+    border: 1px solid #ccc;
+    margin-top: 1%;
 }
