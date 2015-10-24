@@ -56,7 +56,7 @@ get '/stories/:id' do |id|
  erb :'stories/show'
 end
 
-get '/users/:user_id' do |id|\
+get '/users/:user_id' do |id|
   @user = User.find(id)
   erb :'users/show'
 end
