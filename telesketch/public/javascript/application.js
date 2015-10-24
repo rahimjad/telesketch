@@ -1,11 +1,16 @@
 $(document).ready(function() {
-
-$("[id=carousel]").slick({
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3
-}); 
-
+  
+  $("[id=carousel]").slick({
+      centerMode: true,
+      centerPadding: '60px',
+      dots: false,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      arrows: true
+  });
+  
 var __slice = Array.prototype.slice;
 (function($) {
   var Sketch;
