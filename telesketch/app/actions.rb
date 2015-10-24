@@ -47,12 +47,23 @@ get '/stories/join' do
   end
 end
 
+post '/stories/new' do
+  if logged_in?
+    new_story = Story.create
+    new_story_id = new_story.id
+    Text.create(caption: params[:caption], story_id: new_story_id, user_id: current_user.id)
+  else
+    redirect '/'
+  end
+  redirect "/stories/#{new_story_id}"
+end
+
 get '/stories/:id' do |id|
  @story = Story.find(id)
  erb :'stories/show'
 end
 
-get '/users/:user_id' do |id|\
+get '/users/:user_id' do |id|
   @user = User.find(id)
   erb :'users/show'
 end
@@ -64,7 +75,6 @@ get '/stories/:id/play' do |id|
     @story = Story.create
   end
   redirect '/' if @story.complete
-  # binding.pry
   erb :'stories/play'
 end
 
@@ -89,7 +99,7 @@ post '/stories/:id/play' do |id|
     data = Base64.decode64(b64)
     @image = Image.create(image_path: "default", story_id: params[:id], user_id: current_user.id)
     filepath = "/uploads/drawings/image_id_#{@image.id}_story_id_#{@image.story_id}_user_id_#{current_user.id}.png"
-    file = File.open("public".concat(filepath), 'wb')
+    file = File.open("public#{filepath}", 'wb')
     file.write(data)
     file.close
     @image.update(image_path: filepath)
