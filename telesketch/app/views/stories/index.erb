@@ -1,10 +1,11 @@
 <div style="position:relative; width: 1000px; margin: 0 auto;">
+<br/>
 	<% @stories.each do |story| %>
-		<div id="carousel" class="slider multiple-items">
+		<div id="carousel" class="slider multiple-items" >
 			<% story.inputs.each do |input| %>
 				<% if input.is_a?(Text) %>
-					<div>
-					<%= input.caption %>
+					<div Id="box">
+						<%= input.caption %>
 					</div>
 				<% else %>
 					<img src ="<%= input.image_path %>"/>
@@ -13,5 +14,24 @@
 		</div>
 	<% end %>
 </div>
+
+<style>
+.slick-prev:before, .slick-next:before { 
+    color:red !important;
+}
+
+#box
+{
+  height: 50px;
+  width: 300px;
+  background: #FFFFFF;
+  font-size: 20px;
+  font-style: oblique;
+  color: #000000;
+  text-align: center;
+  margin-top: 100px;
+  margin-left: 5px;
+}
+</style>
 
 
