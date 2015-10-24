@@ -54,7 +54,6 @@ get '/stories/:id/play' do |id|
   redirect '/' if !logged_in? 
   @story = Story.find(id)
   redirect '/' if @story.complete
-  # binding.pry
   erb :'stories/play'
 end
 
@@ -79,7 +78,7 @@ post '/stories/:id/play' do |id|
     data = Base64.decode64(b64)
     @image = Image.create(image_path: "default", story_id: params[:id], user_id: current_user.id)
     filepath = "/uploads/drawings/image_id_#{@image.id}_story_id_#{@image.story_id}_user_id_#{current_user.id}.png"
-    file = File.open(filepath, 'wb')
+    file = File.open("public#{filepath}", 'wb')
     file.write(data)
     file.close
     @image.update(image_path: filepath)

@@ -6,9 +6,17 @@ canvas {
 
 .tools { margin-bottom: 10px; }
 .tools a {
-      border: 1px solid black; height: 30px; line-height: 30px; padding: 0 10px; vertical-align: middle; text-align: center; text-decoration: none; display: inline-block; color: black; font-weight: bold;
+    height: 25px;
+    border-radius: 15%;
+    line-height: 26px;
+    padding: 0 10px;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: black;
+    font-weight: bold;
 }
-
 
 html,
 body {
@@ -106,4 +114,21 @@ footer {
 #caption_image_render{
     border: 1px solid #ccc;
     margin-top: 1%;
+}
+
+#sketch_download{
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    border-radius: 3px;
+    height: 29px;
+}
+
+#sketch_clear{
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    border-radius: 3px;
+    height: 29px;
+    margin-right: 3px;
 }

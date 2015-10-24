@@ -3,10 +3,12 @@
 
 <div class="container_canvas">
   <div class="tools">
-    <a href="#colors_sketch" data-download="png" style="float: right; width: 100px;">Download</a>
+     <a href="#colors_sketch" id="sketch_download" class="btn btn-primary" data-download="png" style="float: right;">Save</a>
+     <a href="/stories/<%= @story.id %>/play" id="sketch_clear" class="btn btn-danger" data-download="png" style="float: right;">Clear</a>
   </div>
   <canvas id="colors_sketch" width="600" height="500"></canvas>
 </div>
+
 <script type="text/javascript">
  $(function() {
    $.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#000', '#fff'], function() {

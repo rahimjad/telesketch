@@ -1,7 +1,7 @@
 <div class="row">
   <div class="text-center">
   <% if @story.inputs.exists? && !@story.inputs.last.image_path.nil? %>    
-    <img id="caption_image_render" src=<%= @story.inputs.limit(1).order(:created_at; :desc).where(type: "Image")[0].image_path%>/>
+    <img id="caption_image_render" src=<%= @story.inputs.limit(1).order(created_at: :desc).where(type: "Image")[0].image_path %>/>
   <% end %> 
     <div style="margin: 0px auto; width: 600px;">
       <br>
