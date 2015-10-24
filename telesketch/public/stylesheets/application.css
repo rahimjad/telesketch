@@ -132,3 +132,12 @@ footer {
     height: 29px;
     margin-right: 3px;
 }
+
+.landing-button {
+    padding-top: 20px;
+}
+
+.landing-button img{
+    display: block;
+    margin: 0 auto;
+}
