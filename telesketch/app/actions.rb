@@ -33,7 +33,13 @@ end
 get '/stories/join' do 
   # binding.pry
   if logged_in?
-    id = Story.oldest_incomplete_story(current_user.id).id
+    oldest_incomplete_story = Story.oldest_incomplete_story(current_user.id)
+    if !oldest_incomplete_story
+      id = Story.create.id
+    else
+      id = oldest_incomplete_story.id 
+      # Story.oldest_incomplete_story(current_user.id).id
+    end
     story = Story.find(id)
     redirect "/stories/#{id}/play"
   else
@@ -54,6 +60,9 @@ end
 get '/stories/:id/play' do |id|
   redirect '/' if !logged_in? 
   @story = Story.find(id)
+  if !@story
+    @story = Story.create
+  end
   redirect '/' if @story.complete
   # binding.pry
   erb :'stories/play'
@@ -79,8 +88,8 @@ post '/stories/:id/play' do |id|
     b64 = body.split(',')[1]
     data = Base64.decode64(b64)
     @image = Image.create(image_path: "default", story_id: params[:id], user_id: current_user.id)
-    filepath = "public/uploads/drawings/image_id_#{@image.id}_story_id_#{@image.story_id}_user_id_#{current_user.id}.png"
-    file = File.open(filepath, 'wb')
+    filepath = "/uploads/drawings/image_id_#{@image.id}_story_id_#{@image.story_id}_user_id_#{current_user.id}.png"
+    file = File.open("public".concat(filepath), 'wb')
     file.write(data)
     file.close
     @image.update(image_path: filepath)

@@ -12,3 +12,5 @@ User.create(name: "user_9", email:"user_9@mail.com", image:"/public/uploads/user
 User.create(name: "user_10", email:"user_10@mail.com", image:"/public/uploads/user_images/user_10.jpeg")
 User.create(name: "user_11", email:"user_11@mail.com", image:"/public/uploads/user_images/user_11.jpeg")
 User.create(name: "user_12", email:"user_12@mail.com", image:"/public/uploads/user_images/user_12.jpeg")
+User.create(name: "user_13", email:"user_13@mail.com", image:"/public/uploads/user_images/user_13.jpeg")
+User.create(name: "user_14", email:"user_14@mail.com", image:"/public/uploads/user_images/user_14.jpeg")
