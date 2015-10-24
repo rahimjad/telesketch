@@ -20,6 +20,7 @@ canvas {
 
 html,
 body {
+    background-color: #dddddd;
     height: 100%;
 }
 
@@ -133,7 +134,7 @@ footer {
     margin-right: 3px;
 }
 
-<<<<<<< HEAD
+
 .landing-button {
     padding-top: 20px;
 }
@@ -143,7 +144,7 @@ footer {
     margin: 20px auto;
     width: 90%;
 }
-=======
+
 .profile-card {
     padding: 1rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -206,4 +207,8 @@ footer {
     transform: scale(1.5);
     transition: all .5s ease-in-out; }
 
->>>>>>> ad60f0e699e01c7db3436e3279be43f3ced2db64
+.modal-content {
+    background-color: #dddddd;
+} 
+
+
