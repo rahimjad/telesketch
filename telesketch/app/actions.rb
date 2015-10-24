@@ -40,6 +40,17 @@ get '/stories/join' do
   end
 end
 
+post '/stories/new' do
+  if logged_in?
+    new_story = Story.create
+    new_story_id = new_story.id
+    Text.create(caption: params[:caption], story_id: new_story_id, user_id: current_user.id)
+  else
+    redirect '/'
+  end
+  redirect "/stories/#{new_story_id}"
+end
+
 get '/stories/:id' do |id|
  @story = Story.find(id)
  erb :'stories/show'

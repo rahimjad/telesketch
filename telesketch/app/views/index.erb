@@ -204,6 +204,51 @@
 </form>
 
 
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">CREATE GAME</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Enter The Title of Your Telesketch!</h4>
+      </div>
+
+      <div class="modal-body">
+       <form class="form-horizontal well
+       " id="set-title-form" method='post' action='/stories/new'>
+          <textarea class="form-control" rows="10" id="title" placeholder="(Enter Your Title Here)" name="caption" maxlength="140"></textarea>
+          <button class="btn btn-default" type="submit">Create Game!</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+    <script>
+    $(function(){
+       $('set-title-form').on('submit', function(e){
+            e.preventDefault();
+            $.ajax({
+                url: "/stories/new",
+                type: "POST",
+                data: $("set-title-form").serialize(),
+                success: function(data){
+                   console.log(data);
+                }
+            });
+       }); 
+    });
+</script>
+
+  </div>
+</div>
+
 
 
 
