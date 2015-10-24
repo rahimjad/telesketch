@@ -24,63 +24,97 @@
 <body>
 
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Telesketch</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">About</a>
-                    </li>
-                    <li>
-                        <a href="/stories/join">Join Now!</a>
-                    </li>
-                    <li>
-                        <a href="/stories">Contact</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a><ul class="dropdown-menu">
-                    <li>
-                      <% if logged_in? %>
-
-    <form method="post" action="/users/logout">
-    <button type="submit">Logout</button>
-    </form>
-    <p>Welcome, <%= current_user.name %></p>
-
-  <% else %>
-
-    <form method="post" action="/users/login">
-      <div>
-        <input type="text" placeholder="id" name="user_id">
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Telesketch</a>
       </div>
-      <button type="submit">Log in</button>
-    </form>
-  <% end %>
-  </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#myModal" data-toggle="modal" data-target="#myModal">Create Game!</a>
+          </li>
+          <li>
+            <a href="/stories/join">Join Now!</a>
+          </li>
+          <li>
+            <a href="/stories">All Stories!</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a>
+            <ul class="dropdown-menu list-group" role="menu">
+             
+              <% if logged_in? %>
+              <li class="list-group-item"><a href="/users/<%= current_user.id %>">Welcome, <%= current_user.name %></a></li>
+              <form method="post" action="/users/logout">
+                <li class="list-group-item"><button class="btn-md" type="submit">Logout</button></li>
+              </form>
+
+              <% else %>
+              <li class="dropdown-header">Please Log In:</li>
+              <form method="post" action="/users/login">
+                <div>
+                  <li class="list-group-item"><input type="text" placeholder="id" name="user_id"></li>
+                </div>
+                <li class="list-group-item"><button class="btn-md" type="submit">Log in</button></li>
+              </form>
+              <% end %>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
-    </nav>
+      </nav>
 
-  <%= yield %>
+      <%= yield %>
 
-  <% if logged_in? %>
-    <p> <%= session[:user_id] %> </p>
-    <p> current_user = <%= current_user.name  %> </p>
-  <% end %>
-</body>
-</html>
+
+      <!-- Modal -->
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Enter The Title of Your Telesketch!</h4>
+            </div>
+
+            <div class="modal-body">
+             <form class="form-horizontal well
+             " id="set-title-form" method='post' action='/stories/new'>
+             <textarea class="form-control" rows="10" id="title" placeholder="(Enter Your Title Here)" name="caption" maxlength="140"></textarea>
+             <button class="btn btn-default" type="submit">Create Game!</button>
+           </form>
+         </div>
+         <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+      <script>
+        $(function(){
+         $('set-title-form').on('submit', function(e){
+          e.preventDefault();
+          $.ajax({
+            url: "/stories/new",
+            type: "POST",
+            data: $("set-title-form").serialize(),
+            success: function(data){
+             console.log(data);
+           }
+         });
+        }); 
+       });
+      </script>
+    </body>
+    </html>
