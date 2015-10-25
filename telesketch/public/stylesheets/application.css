@@ -363,4 +363,17 @@ body {
     text-align: center;
 }
 
+#story-title-link {
+    color: black;
+}
+
+#story-title-link h3:hover {
+    font-weight: bold;
+    font-style: italic;
+}
+
+#story-title-link:hover {
+    text-decoration: none;
+}
+
 
