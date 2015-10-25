@@ -11,7 +11,9 @@
           </form>
         <% end %> 
       </div>
-        <p style="text-align:center; font-size:16px;"><small>Joined: <%= @user.created_at %> </small></p> 
+        <p style="text-align:center; font-size:16px;"><small>User created: <%= @user.created_at.strftime('%m.%d.%Y') %>
+        </br>
+        Last played: <%= @user.updated_at.strftime('%m.%d.%Y') %> </small></p> 
     </div>
   </div>
 </div>
@@ -19,4 +21,17 @@
 
 <div class="row text-center">
 <h3 style="color: #6f6f6f;">Other games by <%= @user.name %></h3>
+    <div class="contributors">
+      <ul class="list-group story-users">
+        <div class="row text-center col-sm-8 col-sm-offset-2">
+          <div class="row">
+        <% @user.inputs.each do |input| %>
+          <li class="list-group-item col-sm-3 col-xs-12"><a href="/stories/<%= input.story_id %>">
+            <%= Story.find(input.story_id).inputs.first.caption %></a></li>
+        <% end %>
+          </div>
+        </div>
+        </ul>
+      
+    </div>
 </div>

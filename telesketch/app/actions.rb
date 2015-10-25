@@ -49,7 +49,7 @@ end
 
 post '/stories/new' do
   if logged_in?
-    new_story = Story.create
+    new_story = Story.new
     new_story_id = new_story.id
     Text.create(caption: params[:caption], story_id: new_story_id, user_id: current_user.id)
   else
