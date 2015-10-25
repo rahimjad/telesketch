@@ -2,18 +2,20 @@
 <br/>
 	<% @stories.each do |story| %>
     <% if !story.inputs.empty? %>
-      <a href="/stories/<%= story.id %>" id="story-title-link"><h3 id="carousel-title"><%= story.inputs.first.caption %></h4></a>
-  		<div id="carousel" class="slider multiple-items" >
-  			<% story.inputs.each do |input| %>
-  				<% if input.is_a?(Text) %>
-  					<div id="box">
-  						<p><%= input.caption %></p>
-  					</div>
-  				<% else %>
-  					<img src ="<%= input.image_path %>"/>
-  				<% end %>
-  			<% end %> 
-  		</div>
+      <% if story.complete %>
+        <a href="/stories/<%= story.id %>" id="story-title-link"><h3 id="carousel-title"><%= story.inputs.first.caption %></h4></a>
+    		<div id="carousel" class="slider multiple-items" >
+    			<% story.inputs.each do |input| %>
+    				<% if input.is_a?(Text) %>
+    					<div id="box">
+    						<p><%= input.caption %></p>
+    					</div>
+    				<% else %>
+    					<img src ="<%= input.image_path %>"/>
+    				<% end %>
+    			<% end %> 
+    		</div>
+      <% end %>  
     <% end %>
 	<% end %>
 </div>

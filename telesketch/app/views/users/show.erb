@@ -4,7 +4,7 @@
     <div class="profile-card">
       <img src="<%= @user.image %>">
       <div class="profile-info">
-        <h4 class="subheader" style="color:steelblue;"><%= @user.name %></h4>
+        <h4 class="subheader"><%= @user.name %></h4>
         <% if @user == current_user %>
         <form method="get" action="/stories/join">
           <button class="btn btn-primary">Join Game</button>

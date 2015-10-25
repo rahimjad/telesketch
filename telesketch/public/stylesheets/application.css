@@ -385,7 +385,25 @@ body {
     text-decoration: none;
 }
 
+.profile-card-link p{
+    color: black;
+}
+
+.profile-card-link a:hover {
+    text-decoration: none;
+}
+
+.profile-card-story:hover {
+    background-color: #6192b5;
+}
+
+.profile-info {
+    color: black;
+}
+
 @media (min-width: 768px) and (max-width: 991px) {.nav > li {
     font-size: 18px;
 }
 }
+
+

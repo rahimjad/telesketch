@@ -1,3 +1,4 @@
+
 <div style="position:relative; width: 1000px; margin: 0 auto;">
   <br/>
 
@@ -33,12 +34,12 @@
 <div class="container">
  <div class="row">
    <% @story.inputs.each do |input| %>
-   <div class="col-md-4 col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2">
+   <div class="col-md-4 col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2 profile-card-link">
      <a href="/users/<%= input.user_id %>">
-       <div class="profile-card">
+       <div class="profile-card profile-card-story">
          <img src="<%= input.user.image %>">
          <div class="profile-info">
-           <h4 class="subheader" style="color:steelblue;"><%= input.user.name %></h4>
+           <h4 class="subheader"><%= input.user.name %></h4>
          </div>
          <p style="text-align:center; font-size:16px;"><small>User created: <%= input.user.created_at.strftime('%m.%d.%Y') %>
          </br>
