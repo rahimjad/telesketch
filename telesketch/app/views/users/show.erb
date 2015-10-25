@@ -20,26 +20,17 @@
 <div class="row text-center">
 
 
-  <span class="star-rating">  
-    <input type="radio" name="rating" value="1"><i></i>  
-    <input type="radio" name="rating" value="2"><i></i>  
-    <input type="radio" name="rating" value="3"><i></i>  
-    <input type="radio" name="rating" value="4"><i></i>  
-    <input type="radio" name="rating" value="5"><i></i>
-  </span>
-  <strong class="choice">Choose a rating</strong>
-
-
-
 <h3 style="color: #6f6f6f;">Other games by <%= @user.name %></h3>
     <div class="contributors">
       <ul class="list-group story-users">
         <div class="row text-center col-sm-8 col-sm-offset-2">
           <div class="row">
-        <% @user.inputs.each do |input| %>
+          <% if @user.inputs.any? %>
+            <% @user.inputs.each do |input| %>
           <li class="list-group-item col-sm-3 col-xs-12"><a href="/stories/<%= input.story_id %>">
             <%= Story.find(input.story_id).inputs.first.caption %></a></li>
-        <% end %>
+            <% end %>
+            <% end %>
           </div>
         </div>
         </ul>

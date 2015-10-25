@@ -19,4 +19,8 @@ class Story < ActiveRecord::Base
     # errors.add(:complete, "Sorry, this game has ended. Go home and try again, please.")
   end
 
+  def self.average_rating
+    self.ratings.average(:score).to_i
+  end
+
 end

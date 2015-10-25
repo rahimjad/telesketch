@@ -6,6 +6,7 @@
     <% if input.is_a?(Text) %>
     <div id="box">
       <p><%= input.caption %></p>
+      <p> <a href="/users/<%= input.user_id %>"><%= input.caption %></a></p>
     </div>
     <% else %>
     <img src ="<%= input.image_path %>"/>
@@ -13,43 +14,47 @@
     <% end %> 
   </div>
 </div>
+
 <div class="contributors">
   <div class="row text-center">
-    <span class="star-rating">  
-      <input type="radio" name="rating" value="1"><i></i>  
-      <input type="radio" name="rating" value="2"><i></i>  
-      <input type="radio" name="rating" value="3"><i></i>  
-      <input type="radio" name="rating" value="4"><i></i>  
-      <input type="radio" name="rating" value="5"><i></i>
-    </span>
-    <strong class="choice">Choose a rating</strong>
+    <form method="post" action="/stories/<%= params[:id] %>/rating">
+      <span class="star-rating">  
+        <input type="radio" name="rating" value="1"><i></i>  
+        <input type="radio" name="rating" value="2"><i></i>  
+        <input type="radio" name="rating" value="3"><i></i>  
+        <input type="radio" name="rating" value="4"><i></i>  
+        <input type="radio" name="rating" value="5"><i></i>
+      </span>
+      <button>Submit</button>
+    </form>
+  </div>
+</div>
 
 
+<div class="container">
+ <div class="row">
+   <% @story.inputs.each do |input| %>
+   <div class="col-md-4 col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2">
+     <a href="/users/<%= input.user_id %>">
+       <div class="profile-card">
+         <img src="<%= input.user.image %>">
+         <div class="profile-info">
+           <h4 class="subheader" style="color:steelblue;"><%= input.user.name %></h4>
+         </div>
+         <p style="text-align:center; font-size:16px;"><small>User created: <%= input.user.created_at.strftime('%m.%d.%Y') %>
+         </br>
+         Last played: <%= input.user.updated_at.strftime('%m.%d.%Y') %> </small></p> 
+       </div>
+     </a>
+   </div>
+   <% end %>
+ </div>
+</div>
 
-    <ul class="list-group story-users">
-      <div class="row text-center">
-        <% @story.inputs.each do |input| %>
-        <li class="list-group-item col-sm-3"><a href="/users/<%= input.user_id %>">
-          <div class="profile-card">
-          <img src="<%= input.user.image %>">
-            <div class="profile-info">
-              <h4 class="subheader" style="color:steelblue;"><%= input.user.name %></h4>
-            </div>
-            <p style="text-align:center; font-size:16px;"><small>User created: <%= input.user.created_at.strftime('%m.%d.%Y') %>
-            </br>
-            Last played: <%= input.user.updated_at.strftime('%m.%d.%Y') %> </small></p> 
-          </div>
-          <% end %>
-        </div>
-      </ul>
-      
-    </div>
 
-
-    <style>
-      .slick-prev:before, .slick-next:before { 
-        color:red !important;
-      }
-    </style>
-
+<style>
+ .slick-prev:before, .slick-next:before { 
+   color:red !important;
+ }
+</style>
 
