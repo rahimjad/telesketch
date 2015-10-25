@@ -2,7 +2,7 @@
 <br/>
 	<% @stories.each do |story| %>
     <% if !story.inputs.empty? %>
-      <h4 id="carousel-title"><%= story.inputs.first.caption %></h4>
+      <a href="/stories/<%= story.id %>" id="story-title-link"><h3 id="carousel-title"><%= story.inputs.first.caption %></h4></a>
   		<div id="carousel" class="slider multiple-items" >
   			<% story.inputs.each do |input| %>
   				<% if input.is_a?(Text) %>

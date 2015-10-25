@@ -249,6 +249,7 @@ body {
 .navbar-inverse .navbar-nav li a:hover {
     color: black;
 }
+    
 
 #login-dropdown {
     background-color: #00BCD4;
@@ -363,4 +364,20 @@ body {
     text-align: center;
 }
 
+#story-title-link {
+    color: black;
+}
 
+#story-title-link h3:hover {
+    font-weight: bold;
+    font-style: italic;
+}
+
+#story-title-link:hover {
+    text-decoration: none;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {.nav > li {
+    font-size: 18px;
+}
+}
