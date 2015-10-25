@@ -11,12 +11,7 @@ $(document).ready(function() {
       arrows: true
   });
 
-  $(':radio').change( function() {    
-    $('.choice').text( this.value + ' stars' );  
-  });
 
-
-  
 var __slice = Array.prototype.slice;
 (function($) {
   var Sketch;

@@ -321,7 +321,6 @@ body {
 }
 
 
-
 #box {
   height: 246px;
   width: 284px;
@@ -381,3 +380,10 @@ body {
     font-size: 18px;
 }
 }
+
+.rating { display:inline-block; padding:0px; }
+.rating div { display:inline-block; width:48px; height:48px; margin:0px; background-image: url('star-off.png');}
+
+.selected { background-image: url('star.png') !important; }
+.highlighted { background-image: url('star.png') !important; }
+

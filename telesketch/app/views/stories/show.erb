@@ -5,7 +5,7 @@
       <% @story.inputs.each do |input| %>
         <% if input.is_a?(Text) %>
           <div id="box">
-            <p><%= input.caption %></p>
+            <p> <a href="/users/<%= input.user_id %>"><%= input.caption %></a></p>
           </div>
         <% else %>
           <img src ="<%= input.image_path %>"/>
@@ -15,6 +15,7 @@
 </div>
     <div class="contributors">
     <div class="row text-center">
+      <form method="post" action="/stories/<%= params[:id] %>/rating">
       <span class="star-rating">  
         <input type="radio" name="rating" value="1"><i></i>  
         <input type="radio" name="rating" value="2"><i></i>  
@@ -22,7 +23,11 @@
         <input type="radio" name="rating" value="4"><i></i>  
         <input type="radio" name="rating" value="5"><i></i>
       </span>
-      <strong class="choice">Choose a rating</strong>
+      <button>Submit</button>
+      </form>
+      <strong class="choice">Choose a rating</strong> 
+  
+
 
 
 
