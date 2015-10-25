@@ -25,10 +25,12 @@
       <ul class="list-group story-users">
         <div class="row text-center col-sm-8 col-sm-offset-2">
           <div class="row">
-        <% @user.inputs.each do |input| %>
+          <% if @user.inputs.any? %>
+            <% @user.inputs.each do |input| %>
           <li class="list-group-item col-sm-3 col-xs-12"><a href="/stories/<%= input.story_id %>">
             <%= Story.find(input.story_id).inputs.first.caption %></a></li>
-        <% end %>
+            <% end %>
+            <% end %>
           </div>
         </div>
         </ul>
