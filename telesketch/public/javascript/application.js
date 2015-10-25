@@ -11,6 +11,38 @@ $(document).ready(function() {
       arrows: true
   });
 
+function redirectpage() {
+    var radios = document.getElementsByName('rating');
+    var length = radios.length;
+    var selected_value = false;
+    for (var i = 0; i < length; ++i) {
+        if (radios[i].checked) {
+            selected_value = radios[i].value;
+            break;
+        }
+    }
+
+switch(selected_value) {
+    case "1":
+        window.location = "page1.html";
+        break;
+    case "2":
+        window.location = "page2.html";
+        break;
+    case "3":
+        window.location = "page3.html";
+        break;
+    case "4":
+        window.location = "page4.html";
+        break; 
+    case "5":
+        window.location = "page5.html";
+        break;       
+    default:
+        document.getElementById('notice-message').innerHTML = "Please select one";
+        break;
+}
+}
 
 var __slice = Array.prototype.slice;
 (function($) {
