@@ -10,6 +10,12 @@ $(document).ready(function() {
       slidesToScroll: 3,
       arrows: true
   });
+
+  $(':radio').change( function() {    
+    $('.choice').text( this.value + ' stars' );  
+  });
+
+
   
 var __slice = Array.prototype.slice;
 (function($) {
