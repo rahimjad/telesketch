@@ -53,21 +53,21 @@
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login<b class="caret"></b></a>
-            <ul class="dropdown-menu list-group" role="menu">
+            <ul class="dropdown-menu list-group" role="menu" id="login-dropdown">
              
               <% if logged_in? %>
-              <li class="list-group-item"><a href="/users/<%= current_user.id %>">Welcome, <%= current_user.name %></a></li>
+              <li class="list-group-item text-center"><a href="/users/<%= current_user.id %>">Welcome, <%= current_user.name %></a></li>
               <form method="post" action="/users/logout">
-                <li class="list-group-item"><button class="btn-md" type="submit">Logout</button></li>
+                <li class="list-group-item"><button id="logout-nav" class="btn-md" type="submit">Logout</button></li>
               </form>
 
               <% else %>
               <li class="dropdown-header">Please Log In:</li>
               <form method="post" action="/users/login">
                 <div>
-                  <li class="list-group-item"><input type="text" placeholder="id" name="user_id"></li>
+                  <li class="list-group-item"><input type="text" style="color: black" placeholder="@USER_ID" name="user_id"></li>
                 </div>
-                <li class="list-group-item"><button class="btn-md" type="submit">Log in</button></li>
+                <li class="list-group-item"><button class="btn-md" id="login-btn" type="submit">Log in</button></li>
               </form>
               <% end %>
             </ul>

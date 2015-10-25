@@ -207,8 +207,70 @@ footer {
     transform: scale(1.5);
     transition: all .5s ease-in-out; }
 
-.modal-content {
-    background-color: #dddddd;
-} 
+.navbar-inverse {
+    background-color: #00BCD4 !important;
+    background-image: none;
+    border: none;
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+}
 
+body {
+    font-family: "Chalkduster", "Herculanum", Arial, sans-serif;
+    font-size: 24px;
+}
 
+.navbar-brand {
+    font-size: 24px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: black;
+}
+
+.navbar-inverse .navbar-nav li a {
+    color: white;
+}
+
+.navbar-inverse .navbar-nav li a:hover {
+    color: black;
+}
+
+#login-dropdown {
+    background-color: #00BCD4;
+
+}
+
+#login-dropdown li {
+    background-color: #00BCD4;
+    padding: 6px 15px;
+}
+
+#login-dropdown form {
+    background-color: #00BCD4;
+}
+
+.profile-card {
+    font-family: Helvetica;
+}
+
+#logout-nav{
+    margin: 0 66px;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px 0;
+}
+
+#login-btn{
+    border-radius: 4px;
+    box-shadow: 0 2px 3px 0;
+}
+
+.dropdown-header {
+    font-size: 16px;
+    color: white;
+}

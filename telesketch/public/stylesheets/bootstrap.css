@@ -5949,7 +5949,7 @@ button.close {
 }
 .modal-content {
   position: relative;
-  background-color: #fff;
+  background-color: #00BAA0;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   border: 1px solid #999;
@@ -5978,6 +5978,7 @@ button.close {
 }
 .modal-header {
   min-height: 16.42857143px;
+  color: white;
   padding: 15px;
 }
 .modal-header .close {
@@ -5989,10 +5990,10 @@ button.close {
 }
 .modal-body {
   position: relative;
-  padding: 15px;
+  padding: 10px;
 }
 .modal-footer {
-  padding: 15px;
+  padding: 10px;
   text-align: right;
 }
 .modal-footer .btn + .btn {

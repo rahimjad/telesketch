@@ -6,16 +6,12 @@
       <div class="profile-info">
         <h4 class="subheader" style="color:steelblue;"><%= @user.name %></h4>
         <% if @user == current_user %>
-          <h5>Welcome <%= @user.name %>, want to play a game?</h5>
-          </br>
           <form method="get" action="/stories/join">
               <button class="btn btn-primary">Join Game</button>
           </form>
         <% end %> 
       </div>
-      </br>
-        <p style="text-align:center"><small>Created: <%= @user.created_at %> </small><br>
-         <small>Updated: <%= @user.updated_at %></small></p> 
+        <p style="text-align:center; font-size:16px;"><small>Joined: <%= @user.created_at %> </small></p> 
     </div>
   </div>
 </div>
