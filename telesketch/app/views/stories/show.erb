@@ -5,7 +5,6 @@
     <% @story.inputs.each do |input| %>
     <% if input.is_a?(Text) %>
     <div id="box">
-      <p><%= input.caption %></p>
       <p> <a href="/users/<%= input.user_id %>"><%= input.caption %></a></p>
     </div>
     <% else %>

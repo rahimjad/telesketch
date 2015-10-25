@@ -21,7 +21,7 @@ canvas {
 
 html,
 body {
-    background-color: #dddddd;
+    background-color: #eeeeee;
     height: 100%;
 }
 
@@ -335,6 +335,15 @@ body {
 #box p {
   vertical-align: middle;
   display: table-cell;
+}
+
+#box a {
+    color: black;
+}
+
+#box a:hover {
+    text-decoration: none;
+    color: #00bcd4;
 }
 
 .contributors {
