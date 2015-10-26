@@ -31,14 +31,12 @@ get '/stories' do
 end
 
 get '/stories/join' do 
-  # binding.pry
   if logged_in?
     oldest_incomplete_story = Story.oldest_incomplete_story(current_user.id)
     if !oldest_incomplete_story
       id = Story.create.id
     else
       id = oldest_incomplete_story.id 
-      # Story.oldest_incomplete_story(current_user.id).id
     end
     story = Story.find(id)
     redirect "/stories/#{id}/play"
