@@ -20,7 +20,7 @@ class Story < ActiveRecord::Base
   end
 
   def average_rating
-    ratings.average(:score).to_i
+    ratings.average(:score).to_f.round(1)
   end
 
 end

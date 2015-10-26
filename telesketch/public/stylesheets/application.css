@@ -104,6 +104,12 @@ footer {
     header.carousel .carousel {
         height: 70%;
     }
+
+    #carousel-title {
+        font-size: 20px;
+        max-width: 500px;
+        margin: 0 0 2% 12%;  
+    }
 }
 
 .container_canvas{
@@ -420,7 +426,7 @@ body {
     #carousel-title {
         font-size: 20px;
         max-width: 891px;
-        margin: 0 0 10px -3px;  
+        margin: 0 0 2% 5%;  
     }
 }
 
