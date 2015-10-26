@@ -109,12 +109,13 @@ post '/stories/:id/play' do |id|
   story.complete?
 end
 
-
 post '/stories/:id/rating' do 
   @story = Story.find(params[:id])
   @rating = Rating.create(story_id: params[:id], user_id: current_user.id, score: params[:rating])
   redirect "/stories/#{params[:id]}"
 end
+
+
 
 
 
