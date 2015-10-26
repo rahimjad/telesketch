@@ -4,37 +4,43 @@
     <div class="profile-card">
       <img src="<%= @user.image %>">
       <div class="profile-info">
-        <h4 class="subheader" style="color:steelblue;"><%= @user.name %></h4>
+        <h4 class="subheader"><%= @user.name %></h4>
         <% if @user == current_user %>
-          <form method="get" action="/stories/join">
-              <button class="btn btn-primary">Join Game</button>
-          </form>
+        <form method="get" action="/stories/join">
+          <button class="btn btn-primary">Join Game</button>
+        </form>
         <% end %> 
       </div>
-        <p style="text-align:center; font-size:16px;"><small>User created: <%= @user.created_at.strftime('%m.%d.%Y') %>
-        </br>
-        Last played: <%= @user.updated_at.strftime('%m.%d.%Y') %> </small></p> 
+      <p style="text-align:center; font-size:16px;"><small>User created: <%= @user.created_at.strftime('%m.%d.%Y') %>
+      </br>
+      Last played: <%= @user.updated_at.strftime('%m.%d.%Y') %> </small></p> 
     </div>
   </div>
 </div>
+
 <div class="row text-center">
-
-
-<h3 style="color: #6f6f6f;">Other games by <%= @user.name %></h3>
-    <div class="contributors">
-      <ul class="list-group story-users">
-        <div class="row text-center col-sm-8 col-sm-offset-2">
-          <div class="row">
-          <% if @user.inputs.any? %>
-            <% @user.inputs.each do |input| %>
-          <li class="list-group-item col-sm-3 col-xs-12"><a href="/stories/<%= input.story_id %>">
-            <%= Story.find(input.story_id).inputs.first.caption %></a></li>
-            <% end %>
-            <% end %>
+  <% if @user.inputs.any? %>
+    <h3 style="color: #6f6f6f;">Other games by <%= @user.name %></h3>     
+      <div style="position:relative; width: 1000px; margin: 0 auto;">
+      <br/>
+        <div id="carousel" class="slider multiple-items" >
+          <% @user.inputs.each do |input| %>
+          <div id="box">
+            <p> <a href="/stories/<%= input.story_id %>"> <%= Story.find(input.story_id).inputs.first.caption %></a></p>
+          </div>
+          <% end %>    
           </div>
         </div>
-        </ul>
-      
-    </div>
+      </div>
+  <% else %> 
+    <h3 style="color: #6f6f6f;"><%= @user.name %> has not played anything yet :(</h3> 
+  <% end %>
 </div>
+
+  <style>
+  .slick-prev:before, .slick-next:before { 
+     color:red !important;
+    }
+  </style>
+
 

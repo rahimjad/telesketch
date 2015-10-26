@@ -21,7 +21,7 @@ canvas {
 
 html,
 body {
-    background-color: #dddddd;
+    background-color: #eeeeee;
     height: 100%;
 }
 
@@ -337,6 +337,15 @@ body {
   display: table-cell;
 }
 
+#box a {
+    color: black;
+}
+
+#box a:hover {
+    text-decoration: none;
+    color: #00bcd4;
+}
+
 .contributors {
     font-family: helvetica, Arial;
 }
@@ -374,6 +383,22 @@ body {
 
 #story-title-link:hover {
     text-decoration: none;
+}
+
+.profile-card-link p{
+    color: black;
+}
+
+.profile-card-link a:hover {
+    text-decoration: none;
+}
+
+.profile-card-story:hover {
+    background-color: #6192b5;
+}
+
+.profile-info {
+    color: black;
 }
 
 @media (min-width: 768px) and (max-width: 991px) {.nav > li {
@@ -414,3 +439,4 @@ body {
     background-position:0 0;
 }
    
+

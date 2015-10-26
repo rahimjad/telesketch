@@ -49,13 +49,12 @@ end
 
 post '/stories/new' do
   if logged_in?
-    new_story = Story.new
-    new_story_id = new_story.id
-    Text.create(caption: params[:caption], story_id: new_story_id, user_id: current_user.id)
+    @story = Story.create
+    Text.create(caption: params[:caption], story_id: @story.id, user_id: current_user.id)
   else
     redirect '/'
   end
-  redirect "/stories/#{new_story_id}"
+  redirect "/stories/#{@story.id}"
 end
 
 get '/stories/:id' do |id|
