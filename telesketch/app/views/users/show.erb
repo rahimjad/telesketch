@@ -26,7 +26,11 @@
         <div id="carousel" class="slider multiple-items" >
           <% @user.inputs.each do |input| %>
           <div id="box">
-            <p> <a href="/stories/<%= input.story_id %>"> <%= Story.find(input.story_id).inputs.first.caption %></a></p>
+            <p> <a href="/stories/<%= input.story_id %>"> 
+            <% if input.story_id %>
+                <%= Story.find(input.story_id).inputs.first.caption %></a>
+            <% end %>    
+            </p>
           </div>
           <% end %>    
           </div>

@@ -1,7 +1,7 @@
 
+<% if @story.inputs.where("user_id = ?", current_user.id).any? || @story.complete %>
 <div style="position:relative; width: 1000px; margin: 0 auto;">
   <br/>
-
   <div id="carousel" class="slider multiple-items" >
     <% @story.inputs.each do |input| %>
     <% if input.is_a?(Text) %>
@@ -50,7 +50,19 @@
    <% end %>
  </div>
 </div>
-
+<% else %>
+<div class="container">
+<div class="jumbotron col-md-10 col-md-offset-1">  
+  <h1>We're Sorry, You must play a game before you can view it!</h1>
+  </br>
+  <div class="row text-center">
+    <div class="col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3">
+      <a href="/stories/join" id="story-title-link"><h2>Click to Play Now!</h2></a>
+    </div>
+  </div>
+</div>
+</div>
+<% end %>
 
 <style>
  .slick-prev:before, .slick-next:before { 
