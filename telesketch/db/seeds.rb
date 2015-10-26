@@ -59,5 +59,8 @@ Input.create(story_id: 3, user_id: 12, type: "Image", caption: nil, image_path:"
 Input.create(story_id: 3, user_id: 2, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_36_story_id_3_user_id_2.png")
 Input.create(story_id: 4, user_id: 6, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_38_story_id_4_user_id_6.png")
 
-
+Story.find(1).complete?
+Story.find(2).complete?
+Story.find(3).complete?
+Story.find(4).complete?
 
