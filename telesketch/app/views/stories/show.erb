@@ -1,19 +1,19 @@
 
-<% if @story.inputs.where("user_id = ?", current_user.id).any? || @story.complete %>
-<div style="position:relative; width: 1000px; margin: 0 auto;">
-  <br/>
-  <div id="carousel" class="slider multiple-items" >
-    <% @story.inputs.each do |input| %>
-    <% if input.is_a?(Text) %>
-    <div id="box">
-      <p> <a href="/users/<%= input.user_id %>"><%= input.caption %></a></p>
+<% if ( current_user && @story.inputs.where("user_id = ?", current_user.id).any? ) || @story.complete %>
+  <div style="position:relative; width: 1000px; margin: 0 auto;">
+    <br/>
+    <div id="carousel" class="slider multiple-items" >
+      <% @story.inputs.each do |input| %>
+        <% if input.is_a?(Text) %>
+        <div id="box">
+          <p> <a href="/users/<%= input.user_id %>"><%= input.caption %></a></p>
+        </div>
+        <% else %>
+          <img src ="../<%= input.image_path %>"/>
+        <% end %>
+      <% end %> 
     </div>
-    <% else %>
-    <img src ="<%= input.image_path %>"/>
-    <% end %>
-    <% end %> 
   </div>
-</div>
 
 <div class="contributors">
   <div class="row text-center">

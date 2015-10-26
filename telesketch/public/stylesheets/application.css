@@ -320,6 +320,16 @@ body {
     height: 246px;
 }
 
+.slick-cloned a {
+    color: black;
+}
+
+.slick-cloned a:hover {
+    color: #00BCD4;
+    text-decoration: none;
+}
+
+
 
 #box {
   height: 246px;
@@ -440,5 +450,13 @@ body {
 .rating input:checked + span ~ span {
     background-position:0 0;
 }
-   
 
+.login-auth-form {
+    box-shadow: none;
+}
+   
+.login-auth-form li {
+    background-color: #eeeeee;
+    box-shadow: none;
+    border: none;
+}

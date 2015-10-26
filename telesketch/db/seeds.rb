@@ -14,7 +14,7 @@ User.create(name: "Witch Bey", email:"user_7@mail.com", image:"/uploads/user_ima
 User.create(name: "Justin", email:"user_8@mail.com", image:"/uploads/user_images/user_8.jpeg")
 User.create(name: "Winking Vlad", email:"user_9@mail.com", image:"/uploads/user_images/user_9.jpeg")
 User.create(name: "Dreamboat", email:"user_10@mail.com", image:"/uploads/user_images/user_10.jpeg")
-User.create(name: "AfroDude?", email:"user_11@mail.com", image:"/uploads/user_images/user_11.jpeg")
+User.create(name: "Bob", email:"user_11@mail.com", image:"/uploads/user_images/user_11.jpeg")
 User.create(name: "Uncle Saul", email:"user_12@mail.com", image:"/uploads/user_images/user_12.jpeg")
 User.create(name: "user_13", email:"user_13@mail.com", image:"/uploads/user_images/user_13.jpeg")
 User.create(name: "user_14", email:"user_14@mail.com", image:"/uploads/user_images/user_14.jpeg")

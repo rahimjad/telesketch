@@ -41,18 +41,20 @@ get '/stories/join' do
     story = Story.find(id)
     redirect "/stories/#{id}/play"
   else
-    redirect '/'  
+    erb :'auth/not_logged_in' 
   end
 end
+
+
 
 post '/stories/new' do
   if logged_in?
     @story = Story.create
     Text.create(caption: params[:caption], story_id: @story.id, user_id: current_user.id)
+    redirect "/stories/#{@story.id}"
   else
-    redirect '/'
+    erb :'auth/not_logged_in'
   end
-  redirect "/stories/#{@story.id}"
 end
 
 get '/stories/:id' do |id|
