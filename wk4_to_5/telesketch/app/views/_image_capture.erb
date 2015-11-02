@@ -1,0 +1,32 @@
+
+<div class='demo' id='colors_demo'>
+  <div class="row text-center">
+    <div class="col-sm-6 col-sm-offset-3">
+      <!-- <div class="thumbnail"> -->
+      <% if @story.inputs.exists? && !@story.inputs.last.caption.nil? %>    
+        <h1><%= @story.inputs.limit(1).order(created_at: :desc).where(type: "Text")[0].caption %></h1>
+      <% end %> 
+      <!-- </div> -->
+    </div> 
+  </div>
+<div class="container_canvas">
+  <div class="tools">
+     <a href="#colors_sketch" id="sketch_download" class="btn btn-primary" data-download="png" style="float: right;">Save</a>
+     <a href="/stories/<%= @story.id %>/play" id="sketch_clear" class="btn btn-danger" data-download="png" style="float: right;">Clear</a>
+  </div>
+  <canvas id="colors_sketch" width="600" height="500"></canvas>
+</div>
+
+<script type="text/javascript">
+ $(function() {
+   $.each(['#f00', '#fd0', '#0f0', '#0ff', '#00f', '#f0f','#603913', '#000', '#fff'], function() {
+     $('#colors_demo .tools').append("<a href='#colors_sketch' data-color='" + this + "' style='width: 10px; background: " + this + ";'></a> ");
+   });
+   $.each([3, 5, 10, 15], function() {
+     $('#colors_demo .tools').append("<a href='#colors_sketch' data-size='" + this + "' style='background: #ccc'>" + this + "</a> ");
+   });
+   $('#colors_sketch').sketch();
+ });
+</script>
+</div>
+

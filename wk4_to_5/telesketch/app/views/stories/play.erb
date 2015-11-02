@@ -1,0 +1,10 @@
+<% if @story.inputs.where(user_id: current_user.id).exists? %> 
+  fuck off!
+<% else %>
+  <% if @story.content.last.is_a?(Text) %>
+    <%= render_image_play %>
+  <% elsif @story.inputs.empty? || @story.content.last.is_a?(Image) %>
+    <%= render_text_play %>
+  <% end %>
+
+<% end %>
