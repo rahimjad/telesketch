@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="text-center">
+  <% if @story.inputs.exists? && !@story.inputs.last.image_path.nil? %>    
+    <img id="caption-image-render" src=<%= @story.inputs.limit(1).order(created_at: :desc).where(type: "Image")[0].image_path %>/>
+  <% end %> 
+    <div style="margin: 0px auto; width: 600px;">
+      <br>
+      <form method="post" action="/stories/<%= params[:id] %>/play">
+        <input type="hidden" name="type" value="Text"/>
+        <textarea class="form-control" name="caption" rows="3" columns="12"></textarea>
+        <br>
+        <button class="btn btn-primary">Submit Caption</button>
+      </form>
+    </div>
+    
+  </div>
+</div>
+

@@ -1,0 +1,83 @@
+<% if ( current_user && @story.inputs.where("user_id = ?", current_user.id).any? ) || @story.complete %>
+  <div style="position:relative; width: 1000px; margin: 0 auto;">
+    <br/>
+    <div id="carousel" class="slider multiple-items" >
+      <% @story.inputs.each do |input| %>
+        <% if input.is_a?(Text) %>
+        <div id="box">
+          <p> <a href="/users/<%= input.user_id %>"><%= input.caption %></a></p>
+        </div>
+        <% else %>
+           <img src ="../<%= input.image_path %>"/>
+        <% end %>
+      <% end %> 
+    </div>
+    <p style="color: #777777; font-size: 16px; font-family: Arial;">Average Rating: <%= @story.average_rating %></p> 
+  </div>
+
+
+<% if ( !Rating.where("story_id = ? AND user_id = ?", @story.id, current_user.id).any? ) %>  
+
+<div class="contributors">
+  <!-- <div class="row text-center"> -->
+  <div class="col-sm-3 col-sm-offset-5">
+    <form method="post" action="/stories/<%= params[:id] %>/rating">
+        <fieldset class="rating">
+          <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+          <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+          <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+          <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+          <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+          <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+          <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+          <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+          <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+          <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+        </fieldset>
+        <button class="btn btn-success" style="margin: 7px 0 0 0;
+">Submit</button>
+    </form>
+  </div>
+</div>
+
+<% end %>
+
+
+<div class="container">
+ <div class="row">
+   <% @story.inputs.each do |input| %>
+   <div class="col-md-4 col-sm-4 col-sm-offset-0 col-xs-8 col-xs-offset-2 profile-card-link">
+     <a href="/users/<%= input.user_id %>">
+       <div class="profile-card profile-card-story">
+         <img src="<%= input.user.image %>">
+         <div class="profile-info">
+           <h4 class="subheader"><%= input.user.name %></h4>
+         </div>
+         <p style="text-align:center; font-size:16px;"><small>User created: <%= input.user.created_at.strftime('%m.%d.%Y') %>
+         </br>
+         Last played: <%= input.user.updated_at.strftime('%m.%d.%Y') %> </small></p> 
+       </div>
+     </a>
+   </div>
+   <% end %>
+ </div>
+</div>
+<% else %>
+<div class="container">
+  <div class="row text-center">
+    <div class="jumbotron col-md-10 col-md-offset-1">  
+      <h1>We're Sorry, You must play a game before you can view it!</h1>
+      </br>
+      <div class="row text-center">
+        <div class="col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3">
+          <a href="/stories/join" id="story-title-link"><h2>Click to Play Now!</h2></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<style>
+
+</style>
