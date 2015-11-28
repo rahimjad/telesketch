@@ -21,7 +21,7 @@ helpers do
 end
 
 get '/' do
-  @stories = Story.all.limit(7);
+  @stories = Story.all.limit(5);
   erb :index
 end
 
@@ -80,8 +80,10 @@ get '/stories/:id/play' do |id|
 end
 
 post '/users/login' do
-  session[:user_id] = params[:user_id]
+  redirect "/" if !User.where("id = ?", params[:user_id]).any?
+  session[:user_id] = params[:user_id] if User.where("id = ?", params[:user_id]).any?
   redirect "/users/#{params[:user_id]}" 
+
 end
 
 post '/users/logout' do

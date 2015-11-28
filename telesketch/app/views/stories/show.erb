@@ -16,7 +16,7 @@
   </div>
 
 
-<% if ( !Rating.where("story_id = ? AND user_id = ?", @story.id, current_user.id).any? ) %>  
+<% if ( current_user && !Rating.where("story_id = ? AND user_id = ?", @story.id, current_user.id).any? ) %>  
 
 <div class="contributors">
   <!-- <div class="row text-center"> -->
