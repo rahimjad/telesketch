@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021234943) do
+ActiveRecord::Schema.define(version: 20151201000000) do
 
   create_table "inputs", force: :cascade do |t|
     t.integer  "story_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20151021234943) do
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest", default: "password1"
   end
 
 end

@@ -21,12 +21,12 @@ helpers do
 end
 
 get '/' do
-  @stories = Story.all.limit(7);
+  @stories = Story.all.limit(5)
   erb :index
 end
 
 get '/stories' do
- @stories = Story.all
+ @stories = Story.all.limit(5)
  erb :'stories/index'
 end
 
@@ -68,6 +68,15 @@ get '/users/new' do
   erb :'users/new'
 end
 
+post "/signup" do
+    user = User.new(:name => params[:name], :image => params[:image], :email => params[:email], :password => params[:password])
+    if user.save
+        redirect "/"
+    else
+        redirect "/auth/no_login"
+    end
+end
+
 
 
 get '/users/:user_id' do |id|
@@ -86,8 +95,13 @@ get '/stories/:id/play' do |id|
 end
 
 post '/users/login' do
-  session[:user_id] = params[:user_id]
-  redirect "/users/#{params[:user_id]}" 
+  @user = User.find_by(:name => params[:name])
+  if @user && @user.authenticate(params[:password])
+    session[:user_id] = @user.id
+    redirect "/users/#{params[:user_id]}"
+  else
+    redirect "/"
+  end
 end
 
 post '/users/logout' do
