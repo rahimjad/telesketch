@@ -64,6 +64,12 @@ get '/stories/:id' do |id|
  erb :'stories/show'
 end
 
+get '/users/new' do 
+  erb :'users/new'
+end
+
+
+
 get '/users/:user_id' do |id|
   @user = User.find(id)
   erb :'users/show'
@@ -116,6 +122,8 @@ post '/stories/:id/rating' do
   @rating = Rating.create(story_id: params[:id], user_id: current_user.id, score: params[:rating])
   redirect "/stories/#{params[:id]}"
 end
+
+
 
 
 

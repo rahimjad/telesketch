@@ -11,7 +11,33 @@ $(document).ready(function() {
       arrows: true
   });
 
+  $(function(){
+    $('set-title-form').on('submit', function(e){
+      e.preventDefault();
+      $.ajax({
+        url: "/stories/new",
+        type: "POST",
+        data: $("set-title-form").serialize(),
+        success: function(data){
+         console.log(data);
+        }
+      });
+    }); 
+  });  
 
+  $('.carousel').carousel({
+      interval: 5000 //changes the speed
+  });
+
+  $(function() {
+    $.each(['#f00', '#fd0', '#0f0', '#0ff', '#00f', '#f0f','#603913', '#000', '#fff'], function() {
+      $('#colors_demo .tools').append("<a href='#colors_sketch' data-color='" + this + "' style='width: 10px; background: " + this + ";'></a> ");
+    });
+    $.each([3, 5, 10, 15], function() {
+      $('#colors_demo .tools').append("<a href='#colors_sketch' data-size='" + this + "' style='background: #ccc'>" + this + "</a> ");
+    });
+    $('#colors_sketch').sketch();
+  });
 
 var __slice = Array.prototype.slice;
 (function($) {
@@ -88,11 +114,7 @@ var __slice = Array.prototype.slice;
       }
       mime = "image/" + format;
 
-      // var form = document.getElementById("tester");
-
-      // form.value = "My default value";
       var data = this.el.toDataURL(mime)
-      // console.log(data);
       var url = window.location.href;
       console.log(url)
 
@@ -101,11 +123,8 @@ var __slice = Array.prototype.slice;
       console.log(response_url);
       $.post(url, { data: data, type: "Image" }, function(response)
       {
-
         window.location.pathname = response_url;
-      })
-      ;
-      // return window.open(this.el.toDataURL(mime));
+      });
     };
     Sketch.prototype.set = function(key, value) {
       this[key] = value;
