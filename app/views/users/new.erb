@@ -1,8 +1,28 @@
-<div>
-  <div>
-    <h3>Register by Filling Out Form</h3>
-    <form method="post" >
-      <input type="text" name="username"
-    </form> 
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1">
+      <div id="new-user-div">
+                  <h3>SignUp Form!</h3>
+                  <form method="post" action="/signup">
+                    <div class="form-group">
+                      <label for="InputName">Username</label>
+                      <input type="text" name="name" class="form-control" id="InputUsername" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                      <label for="InputEmail">Email</label>
+                      <input type="email" name="email" class="form-control" id="InputEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                      <label for="InputImageURL">Image URL</label>
+                      <input type="text" name="image" class="form-control" id="InputImageURL" placeholder="Image URL">
+                    </div>
+                    <div class="form-group">
+                    <label for="InputPassword">Password</label>
+                    <input type="password" name="password" class="form-control" id="InputPassword" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                  </form> 
+      </div>
+    </div>
   </div>
 </div>

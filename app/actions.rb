@@ -69,8 +69,8 @@ get '/users/new' do
 end
 
 post "/signup" do
-    user = User.new(:name => params[:name], :image => params[:image], :email => params[:email], :password => params[:password])
-    if user.save
+    @user = User.new(:name => params[:name], :image => params[:image], :email => params[:email], :password => params[:password])
+    if @user.save
         redirect "/"
     else
         redirect "/auth/no_login"
@@ -98,7 +98,7 @@ post '/users/login' do
   @user = User.find_by(:name => params[:name])
   if @user && @user.authenticate(params[:password])
     session[:user_id] = @user.id
-    redirect "/users/#{params[:user_id]}"
+    redirect "/users/#{@user.id}"
   else
     redirect "/"
   end

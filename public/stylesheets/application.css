@@ -286,15 +286,41 @@ body {
     box-shadow: 0 2px 3px 0;
 }
 
+#signup-btn {
+    border-radius: 4px;
+    box-shadow: 0 2px 3px 0;
+}
+
 .dropdown-header {
     font-size: 16px;
     color: white;
+}
+
+#new-user-div {
+    margin-top: 25px;
+    background-color: white;
+    border: 3px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#new-user-div h3 {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+#new-user-div form {
+    margin: 30px;
 }
 
 #caption-image-render {
     margin-top: 40px;
     background-color: white;
     border: 5px solid black;
+}
+
+.list-group-item {
+    text-align: center;
 }
 
 .slick-cloned {
