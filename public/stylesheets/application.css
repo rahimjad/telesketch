@@ -541,4 +541,9 @@ fieldset, label { margin: 0; padding: 0; }
 
 #login-form {
     border: solid 3px black;
+    background-color: white;
+}
+
+#login-form {
+    text-align: center;
 }
