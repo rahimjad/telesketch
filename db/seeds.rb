@@ -19,18 +19,18 @@ User.create(name: "Uncle Saul", email:"user_12@mail.com", image:"/uploads/user_i
 User.create(name: "user_13", email:"user_13@mail.com", image:"/uploads/user_images/user_13.jpeg")
 User.create(name: "user_14", email:"user_14@mail.com", image:"/uploads/user_images/user_14.jpeg")
 
-Input.create(story_id: 1, user_id: 1, type: "Text", caption: "Superman. If superman was a colorful mushroom with spots and fake yellow cartoon hands.", image_path: nil)
-Input.create(story_id: 1, user_id: 2, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_2_story_id_1_user_id_2.png")
-Input.create(story_id: 1, user_id: 3, type: "Text", caption: "Psychedelic Mushroom Superhero", image_path: nil)
-Input.create(story_id: 1, user_id: 4, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_7_story_id_1_user_id_4.png")
-Input.create(story_id: 1, user_id: 5, type: "Text", caption: "My daily dosage on an average Wednesday.", image_path: nil)
-Input.create(story_id: 1, user_id: 6, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_13_story_id_1_user_id_6.png")
-Input.create(story_id: 1, user_id: 7, type: "Text", caption: "Consequences of a wild Tuesday.", image_path: nil)
-Input.create(story_id: 1, user_id: 8, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_19_story_id_1_user_id_8.png")
-Input.create(story_id: 1, user_id: 9, type: "Text", caption: "A sad, confused man wakes up naked after blacking out.", image_path: nil)
-Input.create(story_id: 1, user_id: 10, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_25_story_id_1_user_id_10.png")
-Input.create(story_id: 1, user_id: 11, type: "Text", caption: "A stick figure gets roofied and wakes up naked on a futon outside.", image_path: nil)
-Input.create(story_id: 1, user_id: 12, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_31_story_id_1_user_id_12.png")
+Input.create(story_id: 5, user_id: 1, type: "Text", caption: "Superman. If superman was a colorful mushroom with spots and fake yellow cartoon hands.", image_path: nil)
+Input.create(story_id: 5, user_id: 2, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_2_story_id_1_user_id_2.png")
+Input.create(story_id: 5, user_id: 3, type: "Text", caption: "Psychedelic Mushroom Superhero", image_path: nil)
+Input.create(story_id: 5, user_id: 4, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_7_story_id_1_user_id_4.png")
+Input.create(story_id: 5, user_id: 5, type: "Text", caption: "My daily dosage on an average Wednesday.", image_path: nil)
+Input.create(story_id: 5, user_id: 6, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_13_story_id_1_user_id_6.png")
+Input.create(story_id: 5, user_id: 7, type: "Text", caption: "Consequences of a wild Tuesday.", image_path: nil)
+Input.create(story_id: 5, user_id: 8, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_19_story_id_1_user_id_8.png")
+Input.create(story_id: 5, user_id: 9, type: "Text", caption: "A sad, confused man wakes up naked after blacking out.", image_path: nil)
+Input.create(story_id: 5, user_id: 10, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_25_story_id_1_user_id_10.png")
+Input.create(story_id: 5, user_id: 11, type: "Text", caption: "A stick figure gets roofied and wakes up naked on a futon outside.", image_path: nil)
+Input.create(story_id: 5, user_id: 12, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_31_story_id_1_user_id_12.png")
 Input.create(story_id: 2, user_id: 2, type: "Text", caption: "Lighthouse Labs", image_path: nil)
 Input.create(story_id: 2, user_id: 3, type: "Image", caption: nil, image_path:"uploads/seed_drawings/image_id_5_story_id_2_user_id_3.png")
 Input.create(story_id: 2, user_id: 4, type: "Text", caption: "A striped robot in a pointy hat plays on a computer with its TREX arms while a flying red droid looks on.", image_path: nil)
@@ -63,4 +63,5 @@ Story.find(1).complete?
 Story.find(2).complete?
 Story.find(3).complete?
 Story.find(4).complete?
+
 

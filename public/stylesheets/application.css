@@ -538,3 +538,7 @@ fieldset, label { margin: 0; padding: 0; }
     box-shadow: none;
     border: none;
 }
+
+#login-form {
+    border: solid 3px black;
+}
