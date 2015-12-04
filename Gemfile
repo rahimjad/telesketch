@@ -10,6 +10,8 @@ gem 'sinatra-activerecord'
 gem 'bcrypt'
 gem 'puma'
 gem 'tux'
+gem 'aws-sdk'
+gem 'dotenv'
 
 group :development, :test do
   gem 'pry'

@@ -1,22 +1,29 @@
+require 'aws-sdk'
+
+s3 = Aws::S3::Resource.new(
+  credentials: Aws::Credentials.new(ENV['S3_ACCESS_ID'], ENV['S3_SECRET_KEY']),
+  region: 'us-east-1'
+)
+
 helpers do
 
- def current_user 
-   unless session[:user_id].nil?
-     User.find(session[:user_id])
-   end
- end
+  def current_user 
+    unless session[:user_id].nil?
+      User.find(session[:user_id])
+    end
+  end
 
- def logged_in?
-   !!current_user
- end
+  def logged_in?
+    !!current_user
+  end
 
- def render_image_play
-   erb :'_image_capture'  
- end
+  def render_image_play
+    erb :'_image_capture'  
+  end
 
- def render_text_play
-   erb :'_text_capture' 
- end
+  def render_text_play
+    erb :'_text_capture' 
+  end
 
 end
 
@@ -123,7 +130,10 @@ post '/stories/:id/play' do |id|
     file = File.open("public#{filepath}", 'wb')
     file.write(data)
     file.close
-    @image.update(image_path: filepath)
+    @image.update(image_path: "image_id_#{@image.id}_story_id_#{@image.story_id}_user_id_#{current_user.id}.png")
+    obj = s3.bucket(ENV['S3_BUCKET_NAME']).object("image_id_#{@image.id}_story_id_#{@image.story_id}_user_id_#{current_user.id}.png")
+    obj.upload_file("./public/uploads/drawings/image_id_#{@image.id}_story_id_#{@image.story_id}_user_id_#{current_user.id}.png", acl:'public-read')
+    redirect "/stories/#{params[:id]}"
   else
     redirect '/'  
   end
