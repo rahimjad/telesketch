@@ -2,7 +2,7 @@
   <div style="position:relative; width: 1000px; margin: 0 auto;">
     <br/>
     <div id="carousel" class="slider multiple-items" >
-      <% @story.inputs.each do |input| %>
+      <% @story.inputs.order(:id).each do |input| %>
         <% if input.is_a?(Text) %>
           <div id="box">
             <p><a href="/users/<%= input.user_id %>"><%= input.caption %></a></p>

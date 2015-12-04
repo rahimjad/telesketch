@@ -5,7 +5,7 @@
       <% if story.complete %>
         <a href="/stories/<%= story.id %>" id="story-title-link"><h3 id="carousel-title" style="color:#00BCD4;"><%= story.inputs.first.caption %></h3></a>
     	<div id="carousel" class="slider multiple-items" >
-    	  <% story.inputs.each do |input| %>
+    	  <% story.inputs.order(:id).each do |input| %>
     	    <% if input.is_a?(Text) %>
     	      <div id="box">
     	    	  <p><%= input.caption %></p>
